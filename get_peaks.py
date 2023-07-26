@@ -5,6 +5,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def get_peaks(filename):
+    """
+    wavファイルからピークとなる周波数を取得する関数
+
+    Parameters
+    ----------
+    filename : str
+        wavファイルのファイルパス
+
+    Returns
+    ----------
+    peak_freqs : array of float
+        ピークの周波数のリスト
+    """
 
     # 音声ファイル読み込み
     rate, data = scipy.io.wavfile.read(filename)
