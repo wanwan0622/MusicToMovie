@@ -50,10 +50,14 @@ def hsv_to_rgb(h, s, v):
         r = max
         g = min
         b = ((360 - h) / 60) * (max - min) + min
+    else:
+        r = 255
+        g = 255
+        b = 255
     return int(r), int(g), int(b)
 
 
-MAX_FREQ = 1200
+MAX_FREQ = 1600
 def draw_circle(freq):
     im = Image.new('RGB', (500, 300), (255, 255, 255))
     draw = ImageDraw.Draw(im)
@@ -63,6 +67,3 @@ def draw_circle(freq):
     draw.ellipse((100, 100, 200, 200), fill=(r, g, b))
     im.show()
     # im.save('./pillow_imagedraw.jpg', quality=95)   # jpgで保存したい場合
-
-
-draw_circle(1000)
