@@ -4,6 +4,7 @@ import scipy.signal
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def get_peaks(filename):
     """
     wavファイルからピークとなる周波数を取得する関数
@@ -38,7 +39,7 @@ def get_peaks(filename):
     # ピークを取得
     peaks, _ = scipy.signal.find_peaks(fft_data, height=10000)
     # plt.plot(freqList[peaks], fft_data[peaks],'o')
-    peak_freqs = [] # ピークの周波数
+    peak_freqs = []  # ピークの周波数
     for i in peaks:
         if freqList[i] > 0:
             peak_freqs.append(freqList[i])
