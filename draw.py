@@ -58,6 +58,8 @@ def hsv_to_rgb(h, s, v):
 
 
 MAX_FREQ = 1600
+
+
 def draw_circle(freq):
     im = Image.new('RGB', (500, 300), (255, 255, 255))
     draw = ImageDraw.Draw(im)
