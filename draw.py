@@ -60,12 +60,22 @@ def hsv_to_rgb(h, s, v):
 MAX_FREQ = 1600
 
 
-def draw_circle(freq):
+def draw_circle(freqs):
+    """
+    周波数に応じた円を表示する
+
+    Parameters
+    ----------
+    freqs : array of floats
+        周波数の配列
+    """
     im = Image.new('RGB', (500, 300), (255, 255, 255))
     draw = ImageDraw.Draw(im)
-    h = int(freq * (360 / MAX_FREQ))
-    r, g, b = hsv_to_rgb(h, 255, 255)
-    print(r, g, b)
-    draw.ellipse((100, 100, 200, 200), fill=(r, g, b))
+    for index, freq in enumerate(freqs):
+        print(index, freq)
+        h = int(freq * (360 / MAX_FREQ))
+        r, g, b = hsv_to_rgb(h, 255, 255)
+        print(r, g, b)
+        draw.ellipse((70+index*100, 70, 150+index*100, 150), fill=(r, g, b))
     im.show()
     # im.save('./pillow_imagedraw.jpg', quality=95)   # jpgで保存したい場合
